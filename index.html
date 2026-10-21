@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+
 <title>BacheSantiago</title>
 <style>
 :root { --fondo: #ffffff; --texto: #1f2937; --suave: #6b7280; --primario: #1d4ed8; --borde: #e5e7eb; }
@@ -18,6 +20,10 @@ p { margin: 0 0 12px; }
 a { color: var(--primario); }
 .version, footer { color: var(--suave); font-size: 0.9rem; }
 nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-weight: 600; }
+.descarga { border: 1px solid var(--borde); border-radius: 16px; padding: 4px 20px 12px; margin: 24px 0; }
+.boton { display: inline-block; background: var(--primario); color: var(--fondo); text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 14px 28px; border-radius: 999px; }
+ol { padding-left: 22px; } li { margin-bottom: 8px; }
+code { font-size: 0.95em; }
 footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px; }
 </style>
 </head>
@@ -26,7 +32,22 @@ footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px
 <nav><a href="./">BacheSantiago</a><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a></nav>
 <h1>BacheSantiago</h1>
 <p>Una app ciudadana para reportar baches en segundos y ver dónde están. Cada bache aparece una sola vez en el mapa, aunque lo reporten muchas personas, y cada comuna tiene su Índice de Estado Vial: cuántos baches tiene hoy.</p>
-<p>Está en piloto en Vitacura, Las Condes, Providencia, Ñuñoa y La Reina, y por ahora se reparte solo por invitación. No está en Google Play ni en la App Store.</p>
+<p>Está en piloto en Vitacura, Las Condes, Providencia, Ñuñoa y La Reina. Por ahora es solo para Android y no está en Google Play.</p>
+<section class="descarga" id="descargar">
+<h2>Instálala en tu Android</h2>
+<p><a class="boton" href="https://github.com/06faom-dotcom/bachesantiago-web/releases/latest/download/BacheSantiago.apk">Descargar para Android</a></p>
+<p class="version">Abre esta página desde tu teléfono. ¿Estás en un computador? Envíate este enlace por WhatsApp o correo.</p>
+<ol>
+<li>Toca <strong>Descargar para Android</strong>. Si el navegador pregunta si quieres conservar el archivo, toca <strong>Descargar</strong> o <strong>Conservar</strong>.</li>
+<li>Cuando termine, toca <strong>Abrir</strong> (o búscalo en <em>Descargas</em>: <code>BacheSantiago.apk</code>).</li>
+<li>Si Android dice que no puede instalar apps de esa fuente, toca <strong>Configuración</strong>, activa <strong>Permitir de esta fuente</strong> y vuelve atrás.</li>
+<li>Toca <strong>Instalar</strong>. Si aparece <em>Play Protect</em>, toca <strong>Más detalles → Instalar de todas formas</strong>: sale porque la app no viene de Google Play.</li>
+<li>Abre <strong>BacheSantiago</strong> y acepta el aviso inicial. ¡Listo!</li>
+</ol>
+<p>¿Ya la tienes? Descarga e instala igual la versión nueva cuando te avisemos: se instala encima y no pierdes tu cuenta ni tus reportes.</p>
+<p>En iPhone todavía no está disponible.</p>
+</section>
+<p><strong>No uses la app mientras manejas.</strong> «Marcar aquí» es un solo toque, y el resto se completa después, detenido.</p>
 <p>Nunca mostramos quién reportó un bache. Puedes usar la app sin cuenta, o crear una con tu correo o con Google.</p>
 <p>¿Preguntas o sugerencias? Escribe a <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a>.</p>
 <footer>BacheSantiago · Felipe Osorio Manríquez · <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a></footer>
