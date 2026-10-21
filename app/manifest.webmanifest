@@ -1,0 +1,13 @@
+{
+  "name": "BacheSantiago",
+  "short_name": "BacheSantiago",
+  "description": "Reporta un bache en segundos y ayuda a que nuestras calles mejoren.",
+  "lang": "es-CL",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1D4ED8",
+  "icons": [{ "src": "icono.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }]
+}
