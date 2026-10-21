@@ -4,25 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-
+<meta name="theme-color" content="#FF7A1A">
 <title>Términos de uso · BacheSantiago</title>
+<meta name="description" content="Hagamos visibles los baches de Santiago, con datos reales que aporta la comunidad.">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
 <style>
-:root { --fondo: #ffffff; --texto: #1f2937; --suave: #6b7280; --primario: #c2410c; --borde: #e5e7eb; }
+:root { --fondo: #ffffff; --fondo2: #fff7ed; --texto: #1f2937; --suave: #5b6270; --primario: #c2410c; --marca: #ff7a1a;
+  --sobre-primario: #ffffff; --borde: #e5e7eb; --tarjeta: #ffffff; }
 @media (prefers-color-scheme: dark) {
-  :root { --fondo: #111827; --texto: #f3f4f6; --suave: #9ca3af; --primario: #fb923c; --borde: #374151; }
+  :root { --fondo: #111827; --fondo2: #1a1f27; --texto: #f3f4f6; --suave: #a3abb8; --primario: #fb923c; --marca: #ff7a1a;
+    --sobre-primario: #14171c; --borde: #2e3540; --tarjeta: #1a1f27; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--fondo); color: var(--texto); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--primario); }
+
 main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
 h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 8px; }
 h2 { font-size: 1.2rem; margin: 32px 0 8px; }
 p { margin: 0 0 12px; }
-a { color: var(--primario); }
 .version, footer { color: var(--suave); font-size: 0.9rem; }
 nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-weight: 600; }
 .descarga { border: 1px solid var(--borde); border-radius: 16px; padding: 4px 20px 12px; margin: 24px 0; }
-.boton { display: inline-block; background: var(--primario); color: var(--fondo); text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 14px 28px; border-radius: 999px; }
+.boton { display: inline-block; background: var(--primario); color: var(--sobre-primario); text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 14px 28px; border-radius: 999px; }
+.aviso { background: var(--fondo2); border-radius: 12px; padding: 10px 14px; }
 ol { padding-left: 22px; } li { margin-bottom: 8px; }
 code { font-size: 0.95em; }
 footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px; }
@@ -30,9 +36,9 @@ footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px
 </head>
 <body>
 <main>
-<nav><a href="./">BacheSantiago</a><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a></nav>
+<nav><a href="./">BacheSantiago</a><a href="mapa/">Mapa</a><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a></nav>
 <h1>Términos de uso</h1>
-<p class="version">Borrador del 20 de octubre de 2026</p>
+<p class="version">Borrador del 21 de octubre de 2026</p>
 <h2>Qué es BacheSantiago</h2>
 <p>Una herramienta ciudadana y gratuita para reportar baches y ver su estado. No es un servicio municipal ni oficial: reportar un bache no garantiza que se repare.</p>
 <h2>Primero, la seguridad</h2>
@@ -55,7 +61,7 @@ footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px
 <h2>Cambios y ley aplicable</h2>
 <p>Podemos actualizar estos términos y lo avisaremos en la app. Se rigen por la ley chilena.</p>
 <p>Contacto: <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a>.</p>
-<footer>BacheSantiago · Felipe Osorio · <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a></footer>
+<footer>BacheSantiago · <a href="./#contacto">Contáctenos</a></footer>
 </main>
 </body>
 </html>

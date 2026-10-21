@@ -1,56 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-CL">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-    <title>BacheSantiago</title>
-    <meta name="description" content="Reporta un bache en segundos y ayuda a que nuestras calles mejoren." />
-    <!-- Piloto: fuera de los buscadores; solo llega quien tiene el enlace (docs/PLAN.md D74). -->
-    <meta name="robots" content="noindex" />
-    <!-- «Agregar a pantalla de inicio» (S147): en iPhone y Android se abre como app. -->
-    <meta name="theme-color" content="#FF7A1A" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="BacheSantiago" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <link rel="apple-touch-icon" href="icono.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="favicon.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <!-- Regreso de Google (src/datos/google.web.ts): el código se guarda para esta visita y se quita de la
-         dirección antes de que arranque la app; si no, el enrutador lo vuelve a poner en la barra. -->
-    <script>
-      (function () {
-        var l = window.location;
-        if (!/[?&](code|error)=/.test(l.search) && !/[#&]error=/.test(l.hash)) return;
-        try {
-          sessionStorage.setItem('bachesantiago-google-regreso', JSON.stringify([l.search, l.hash]));
-        } catch (e) {}
-        history.replaceState(null, '', l.pathname);
-      })();
-    </script>
-    <!-- Estilos que recomienda react-native-web: la app ocupa toda la pantalla y no se desplaza. -->
-    <style id="expo-reset">
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        overflow: hidden;
-        overscroll-behavior: none;
-      }
-      #root {
-        display: flex;
-        height: 100%;
-        flex: 1;
-      }
-    </style>
-  <link rel="preload" href="/bachesantiago-web/app/_expo/static/css/maplibre-gl-1087f32ac90561d22e082126880c64a5.css" as="style">
-<link rel="stylesheet" href="/bachesantiago-web/app/_expo/static/css/maplibre-gl-1087f32ac90561d22e082126880c64a5.css"></head>
-
-  <body>
-    <noscript>BacheSantiago necesita JavaScript activado.</noscript>
-    <div id="root"></div>
-  <script src="/bachesantiago-web/app/_expo/static/js/web/entry-ff8640df910dd12c43c8d1c9ea97f7e0.js" defer></script>
-</body>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>BacheSantiago</title>
+<script>location.replace('../mapa/' + location.search + location.hash);</script>
+<meta http-equiv="refresh" content="0; url=../mapa/">
+</head>
+<body><p><a href="../mapa/">Ir al mapa de BacheSantiago</a></p></body>
 </html>

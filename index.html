@@ -4,63 +4,288 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-
-<title>BacheSantiago</title>
+<meta name="theme-color" content="#FF7A1A">
+<title>BacheSantiago · Hagamos visibles los baches de Santiago</title>
+<meta name="description" content="Hagamos visibles los baches de Santiago, con datos reales que aporta la comunidad.">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
 <style>
-:root { --fondo: #ffffff; --texto: #1f2937; --suave: #6b7280; --primario: #c2410c; --borde: #e5e7eb; }
+:root { --fondo: #ffffff; --fondo2: #fff7ed; --texto: #1f2937; --suave: #5b6270; --primario: #c2410c; --marca: #ff7a1a;
+  --sobre-primario: #ffffff; --borde: #e5e7eb; --tarjeta: #ffffff; }
 @media (prefers-color-scheme: dark) {
-  :root { --fondo: #111827; --texto: #f3f4f6; --suave: #9ca3af; --primario: #fb923c; --borde: #374151; }
+  :root { --fondo: #111827; --fondo2: #1a1f27; --texto: #f3f4f6; --suave: #a3abb8; --primario: #fb923c; --marca: #ff7a1a;
+    --sobre-primario: #14171c; --borde: #2e3540; --tarjeta: #1a1f27; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--fondo); color: var(--texto); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 8px; }
-h2 { font-size: 1.2rem; margin: 32px 0 8px; }
-p { margin: 0 0 12px; }
 a { color: var(--primario); }
-.version, footer { color: var(--suave); font-size: 0.9rem; }
-nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-weight: 600; }
-.descarga { border: 1px solid var(--borde); border-radius: 16px; padding: 4px 20px 12px; margin: 24px 0; }
-.boton { display: inline-block; background: var(--primario); color: var(--fondo); text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 14px 28px; border-radius: 999px; }
-ol { padding-left: 22px; } li { margin-bottom: 8px; }
-code { font-size: 0.95em; }
-footer { border-top: 1px solid var(--borde); margin-top: 48px; padding-top: 16px; }
+
+.ancho { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+header.portada { background: linear-gradient(160deg, #ff7a1a 0%, #c2410c 100%); color: #ffffff; padding: 28px 0 56px; }
+header.portada nav { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+header.portada nav .marca { display: flex; align-items: center; gap: 10px; color: #ffffff; text-decoration: none; font-weight: 800; font-size: 1.15rem; }
+header.portada nav .marca img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+header.portada nav .espacio { flex: 1; }
+header.portada nav a.enlace { color: #ffffff; font-weight: 700; text-decoration: none; padding: 8px 12px; border-radius: 999px; }
+header.portada nav a.enlace:hover { background: rgba(255,255,255,.16); }
+.heroe { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+.heroe h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
+.heroe p.mision { font-size: 1.15rem; margin: 0 0 28px; max-width: 34em; color: #fff7ed; }
+.botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 0 26px; border-radius: 999px; font-weight: 800; font-size: 1.08rem; text-decoration: none; }
+.boton.principal { background: #ffffff; color: #c2410c; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+.boton.secundario { border: 2px solid #ffffff; color: #ffffff; }
+.boton:hover { transform: translateY(-1px); }
+.nota { font-size: .92rem; color: #ffedd5; margin: 14px 0 0; }
+.tarjeta-vivo { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.28); border-radius: 24px; padding: 24px; text-align: center; }
+.tarjeta-vivo img { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 28px rgba(0,0,0,.25); }
+.tarjeta-vivo .cifra { font-size: 3.4rem; font-weight: 900; line-height: 1; margin: 18px 0 4px; font-variant-numeric: tabular-nums; }
+.tarjeta-vivo .rotulo { font-weight: 700; color: #fff7ed; }
+section.bloque { padding: 56px 0; }
+section.bloque.tenue { background: var(--fondo2); }
+section.bloque h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 8px; letter-spacing: -0.01em; }
+section.bloque p.intro { color: var(--suave); margin: 0 0 28px; max-width: 40em; }
+.pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; }
+.pasos li { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 20px; padding: 22px; }
+.pasos .numero { display: inline-flex; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center; background: var(--primario); color: var(--sobre-primario); font-weight: 900; margin-bottom: 10px; }
+.pasos h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.pasos p { margin: 0; color: var(--suave); }
+.indice { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; }
+.indice li { display: grid; grid-template-columns: 9.5em 1fr 3em; align-items: center; gap: 12px; }
+.indice .comuna { font-weight: 700; }
+.indice .barra { height: 12px; border-radius: 6px; background: var(--borde); overflow: hidden; }
+.indice .barra span { display: block; height: 100%; border-radius: 6px; background: var(--primario); min-width: 2px; }
+.indice .total { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.estado-indice { color: var(--suave); font-size: .92rem; margin-top: 18px; }
+.cierre { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+.cierre .boton.principal { background: var(--primario); color: var(--sobre-primario); box-shadow: none; }
+.cierre .boton.secundario { border-color: var(--primario); color: var(--primario); }
+.compromisos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.compromisos div { border-left: 4px solid var(--marca); padding: 2px 0 2px 14px; }
+.compromisos strong { display: block; }
+.compromisos span { color: var(--suave); }
+footer.pie { border-top: 1px solid var(--borde); padding: 24px 0 40px; color: var(--suave); font-size: .92rem; }
+footer.pie .ancho { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+footer.pie button.contacto { font: inherit; font-weight: 700; color: var(--primario); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+dialog.contacto { width: min(520px, calc(100% - 32px)); border: 0; border-radius: 20px; padding: 24px; background: var(--tarjeta); color: var(--texto); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog.contacto::backdrop { background: rgba(0,0,0,.45); }
+dialog.contacto h2 { margin: 0 0 6px; font-size: 1.4rem; }
+dialog.contacto p { margin: 0 0 14px; color: var(--suave); }
+dialog.contacto label { display: block; font-weight: 700; margin: 12px 0 4px; }
+dialog.contacto label span { font-weight: 400; color: var(--suave); }
+dialog.contacto textarea, dialog.contacto input { width: 100%; font: inherit; color: var(--texto); background: var(--fondo); border: 1.5px solid var(--borde); border-radius: 12px; padding: 10px 12px; }
+dialog.contacto textarea { min-height: 130px; resize: vertical; }
+dialog.contacto textarea:focus, dialog.contacto input:focus { outline: 2px solid var(--primario); outline-offset: 1px; }
+dialog.contacto .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+dialog.contacto .acciones { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
+dialog.contacto .acciones button { min-height: 48px; padding: 0 22px; border-radius: 999px; font: inherit; font-weight: 800; cursor: pointer; }
+dialog.contacto .enviar { background: var(--primario); color: var(--sobre-primario); border: 0; }
+dialog.contacto .enviar:disabled { opacity: .5; cursor: default; }
+dialog.contacto .cancelar { background: none; color: var(--texto); border: 1.5px solid var(--borde); }
+dialog.contacto .estado { margin: 12px 0 0; font-weight: 700; color: var(--texto); min-height: 1.4em; }
+dialog.contacto .cuenta { text-align: right; font-size: .85rem; color: var(--suave); margin-top: 4px; }
+@media (max-width: 760px) {
+  header.portada { padding-bottom: 40px; }
+  header.portada nav { margin-bottom: 28px; }
+  header.portada nav a.enlace { display: none; }
+  .heroe { grid-template-columns: 1fr; gap: 28px; }
+  .tarjeta-vivo { display: flex; align-items: center; gap: 16px; text-align: left; padding: 16px; }
+  .tarjeta-vivo img { width: 64px; height: 64px; border-radius: 16px; }
+  .tarjeta-vivo .cifra { font-size: 2.4rem; margin: 0 0 2px; }
+  .boton { width: 100%; }
+  .pasos, .compromisos { grid-template-columns: 1fr; }
+  .indice { grid-template-columns: 1fr; }
+  .indice li { grid-template-columns: 8.5em 1fr 2.6em; }
+  section.bloque { padding: 40px 0; }
+}
 </style>
 </head>
 <body>
-<main>
-<nav><a href="./">BacheSantiago</a><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a></nav>
-<h1>BacheSantiago</h1>
-<p>Una app ciudadana para reportar baches en segundos y ver dónde están. Cada bache aparece una sola vez en el mapa, aunque lo reporten muchas personas, y cada comuna tiene su Índice de Estado Vial: cuántos baches tiene hoy.</p>
-<p>Está en piloto en Vitacura, Las Condes, Providencia, Ñuñoa, La Reina, Macul, La Florida, Puente Alto, Maipú y Padre Hurtado. Puedes usarla desde el navegador de cualquier teléfono, sin instalar nada, o instalar la app en Android.</p>
-<section class="descarga" id="web">
-<h2>Úsala sin instalar nada</h2>
-<p><a class="boton" href="app/">Abrir BacheSantiago en el navegador</a></p>
-<p class="version">Funciona en iPhone y en Android. Desde el navegador no se pueden subir fotos: para eso, instala la app en Android.</p>
-<ul>
-<li><strong>iPhone (Safari):</strong> toca Compartir → <strong>Agregar a pantalla de inicio</strong> y queda como una app.</li>
-<li><strong>Android (Chrome):</strong> toca el menú ⋮ → <strong>Agregar a la pantalla principal</strong>.</li>
-</ul>
-</section>
-<section class="descarga" id="descargar">
-<h2>O instala la app en tu Android</h2>
-<p class="version">No está en Google Play: se descarga desde aquí.</p>
-<p><a class="boton" href="https://github.com/06faom-dotcom/bachesantiago-web/releases/latest/download/BacheSantiago.apk">Descargar para Android</a></p>
-<p class="version">Abre esta página desde tu teléfono. ¿Estás en un computador? Envíate este enlace por WhatsApp o correo.</p>
-<ol>
-<li>Toca <strong>Descargar para Android</strong>. Si el navegador pregunta si quieres conservar el archivo, toca <strong>Descargar</strong> o <strong>Conservar</strong>.</li>
-<li>Cuando termine, toca <strong>Abrir</strong> (o búscalo en <em>Descargas</em>: <code>BacheSantiago.apk</code>).</li>
-<li>Si Android dice que no puede instalar apps de esa fuente, toca <strong>Configuración</strong>, activa <strong>Permitir de esta fuente</strong> y vuelve atrás.</li>
-<li>Toca <strong>Instalar</strong>. Si aparece <em>Play Protect</em>, toca <strong>Más detalles → Instalar de todas formas</strong>: sale porque la app no viene de Google Play.</li>
-<li>Abre <strong>BacheSantiago</strong> y acepta el aviso inicial. ¡Listo!</li>
+<header class="portada">
+<div class="ancho">
+<nav>
+<a class="marca" href="./"><img src="logo.png" alt="" width="40" height="40">BacheSantiago</a>
+<span class="espacio"></span>
+<a class="enlace" href="#como-funciona">Cómo funciona</a>
+<a class="enlace" href="#indice-vial">Índice de Estado Vial</a>
+<a class="enlace" href="mapa/">Mapa</a>
+</nav>
+<div class="heroe">
+<div>
+<h1>Hagamos visibles los baches de Santiago</h1>
+<p class="mision">BacheSantiago reúne en un mapa los baches que reporta la comunidad. Con datos reales y ordenados, las autoridades tienen información clara para priorizar y reparar nuestras calles.</p>
+<div class="botones">
+<a class="boton principal" href="mapa/">Ver el mapa</a>
+<a class="boton secundario" href="descargar/">Descargar la app para Android</a>
+</div>
+<p class="nota">La app es solo para Android por ahora. En iPhone o en el computador, usa el mapa desde el navegador.</p>
+</div>
+<div class="tarjeta-vivo" aria-live="polite">
+<img src="logo.png" alt="Logo de BacheSantiago" width="112" height="112">
+<div>
+<div class="cifra" id="total">…</div>
+<div class="rotulo">baches activos en las 10 comunas del piloto</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<section class="bloque" id="como-funciona">
+<div class="ancho">
+<h2>Cómo funciona</h2>
+<p class="intro">Tres pasos simples. Un reporte toma segundos y no necesita foto.</p>
+<ol class="pasos">
+<li><span class="numero">1</span><h3>Reporta</h3><p>Marca el bache en el mapa e indica su tamaño y qué tan peligroso es. Si vas manejando, márcalo de un toque y complétalo después, detenido.</p></li>
+<li><span class="numero">2</span><h3>Confirma</h3><p>Otras personas confirman si sigue ahí o si ya lo repararon. Cada bache aparece una sola vez, aunque lo reporten muchos.</p></li>
+<li><span class="numero">3</span><h3>Hazlo visible</h3><p>Cada comuna tiene su Índice de Estado Vial: cuántos baches reales tiene hoy. Información clara para que se tomen decisiones.</p></li>
 </ol>
-<p>¿Ya la tienes? Descarga e instala igual la versión nueva cuando te avisemos: se instala encima y no pierdes tu cuenta ni tus reportes.</p>
+</div>
 </section>
-<p><strong>No uses la app mientras manejas.</strong> «Marcar aquí» es un solo toque, y el resto se completa después, detenido.</p>
-<p>Nunca mostramos quién reportó un bache. Puedes usar la app sin cuenta, o crear una con tu correo o con Google.</p>
-<p>¿Preguntas o sugerencias? Escribe a <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a>.</p>
-<footer>BacheSantiago · Felipe Osorio · <a href="mailto:faomanriquez@gmail.com">faomanriquez@gmail.com</a></footer>
-</main>
+
+<section class="bloque tenue" id="indice-vial">
+<div class="ancho">
+<h2>Índice de Estado Vial, en vivo</h2>
+<p class="intro">Baches activos en cada comuna del piloto, según lo que reporta y confirma la comunidad. Sin puntajes ni ajustes: un bache real es uno.</p>
+<ul class="indice" id="indice"><li><span class="comuna">Cargando…</span></li></ul>
+<p class="estado-indice" id="estado-indice"></p>
+</div>
+</section>
+
+<section class="bloque">
+<div class="ancho">
+<div class="cierre">
+<div>
+<h2>Súmate desde tu barrio</h2>
+<p class="intro" style="margin:0">Mira el mapa, confirma los baches que conoces y reporta los que faltan.</p>
+</div>
+<div class="botones">
+<a class="boton principal" href="mapa/">Ver el mapa</a>
+<a class="boton secundario" href="descargar/">Descargar la app para Android</a>
+</div>
+</div>
+<div class="compromisos">
+<div><strong>Tu identidad se protege</strong><span>Nunca mostramos quién reportó un bache. Puedes usarla sin cuenta.</span></div>
+<div><strong>Seguridad primero</strong><span>No uses el teléfono mientras manejas: «Marcar aquí» es un solo toque.</span></div>
+<div><strong>Constructivo</strong><span>No buscamos culpables: queremos datos claros para mejorar nuestras calles.</span></div>
+</div>
+</div>
+</section>
+
+<footer class="pie">
+<div class="ancho">
+<span>BacheSantiago</span>
+<button type="button" class="contacto" id="abrir-contacto">Contáctenos</button>
+<a href="mapa/">Mapa</a>
+<a href="descargar/">Descargar la app</a>
+<a href="privacidad.html">Política de privacidad</a>
+<a href="terminos.html">Términos de uso</a>
+</div>
+</footer>
+<dialog class="contacto" id="contacto" aria-labelledby="contacto-titulo">
+<form id="contacto-form" method="dialog" novalidate>
+<h2 id="contacto-titulo">Contáctenos</h2>
+<p>¿Una sugerencia, un problema con la app o una idea? Escríbenos.</p>
+<label for="contacto-mensaje">Mensaje</label>
+<textarea id="contacto-mensaje" name="mensaje" maxlength="1000" required></textarea>
+<div class="cuenta"><span id="contacto-cuenta">0</span>/1000</div>
+<label for="contacto-nombre">Nombre <span>(opcional)</span></label>
+<input id="contacto-nombre" name="nombre" maxlength="80" autocomplete="name">
+<label for="contacto-correo">Correo <span>(opcional, solo si quieres que te respondamos)</span></label>
+<input id="contacto-correo" name="correo" type="email" maxlength="200" autocomplete="email">
+<div class="trampa" aria-hidden="true"><label for="contacto-web">No completar</label><input id="contacto-web" name="web" tabindex="-1" autocomplete="off"></div>
+<p class="estado" id="contacto-estado" role="status" aria-live="polite"></p>
+<div class="acciones">
+<button type="button" class="cancelar" id="contacto-cerrar">Cerrar</button>
+<button type="submit" class="enviar" id="contacto-enviar">Enviar</button>
+</div>
+</form>
+</dialog>
+<script>
+(function () {
+  var lista = document.getElementById('indice');
+  var estado = document.getElementById('estado-indice');
+  var total = document.getElementById('total');
+  fetch("https://tppblfzputhqyaxztyyi.supabase.co/rest/v1/rpc/indice_estado_vial", {
+    method: 'POST',
+    headers: { apikey: "sb_publishable_CrF-cDri2f9ce1sMJocrzQ_wI63PPZR", 'Content-Type': 'application/json' },
+    body: '{}'
+  })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (filas) {
+      filas.sort(function (a, b) { return b.total - a.total || a.comuna.localeCompare(b.comuna, 'es'); });
+      var max = Math.max.apply(null, filas.map(function (f) { return f.total; }).concat([1]));
+      var suma = 0;
+      lista.innerHTML = '';
+      filas.forEach(function (f) {
+        suma += f.total;
+        var li = document.createElement('li');
+        var c = document.createElement('span'); c.className = 'comuna'; c.textContent = f.comuna;
+        var b = document.createElement('span'); b.className = 'barra'; b.setAttribute('aria-hidden', 'true');
+        var r = document.createElement('span'); r.style.width = (100 * f.total / max) + '%'; b.appendChild(r);
+        var n = document.createElement('span'); n.className = 'total'; n.textContent = f.total.toLocaleString('es-CL');
+        li.appendChild(c); li.appendChild(b); li.appendChild(n);
+        lista.appendChild(li);
+      });
+      total.textContent = suma.toLocaleString('es-CL');
+      estado.textContent = 'Actualizado al abrir esta página: ' + new Date().toLocaleString('es-CL', { dateStyle: 'long', timeStyle: 'short' });
+    })
+    .catch(function () {
+      total.textContent = '—';
+      lista.innerHTML = '';
+      estado.textContent = 'No pudimos cargar los números en este momento. Puedes verlos en el mapa.';
+    });
+})();
+</script>
+<script>
+(function () {
+  var dialogo = document.getElementById('contacto');
+  var form = document.getElementById('contacto-form');
+  var mensaje = document.getElementById('contacto-mensaje');
+  var cuenta = document.getElementById('contacto-cuenta');
+  var estado = document.getElementById('contacto-estado');
+  var enviar = document.getElementById('contacto-enviar');
+  var TEXTOS = {
+    ok: '¡Gracias! Recibimos tu mensaje.',
+    mensaje_corto: 'Escribe un poco más, por favor.',
+    mensaje_largo: 'El mensaje es demasiado largo (máximo 1000 caracteres).',
+    correo_invalido: 'Revisa el correo: no parece válido.',
+    limite: 'Recibimos muchos mensajes en poco rato. Inténtalo de nuevo en una hora.',
+    error: 'No pudimos enviarlo. Revisa tu conexión e inténtalo de nuevo.'
+  };
+  function abrir() {
+    estado.textContent = '';
+    if (typeof dialogo.showModal === 'function') dialogo.showModal(); else dialogo.setAttribute('open', '');
+    mensaje.focus();
+  }
+  document.getElementById('abrir-contacto').addEventListener('click', abrir);
+  document.getElementById('contacto-cerrar').addEventListener('click', function () { dialogo.close(); });
+  mensaje.addEventListener('input', function () { cuenta.textContent = mensaje.value.length; });
+  if (location.hash === '#contacto') abrir();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Trampa para robots: una persona no ve ni llena este campo.
+    if (document.getElementById('contacto-web').value) { estado.textContent = TEXTOS.ok; return; }
+    enviar.disabled = true;
+    estado.textContent = 'Enviando…';
+    fetch("https://tppblfzputhqyaxztyyi.supabase.co/rest/v1/rpc/enviar_contacto", {
+      method: 'POST',
+      headers: { apikey: "sb_publishable_CrF-cDri2f9ce1sMJocrzQ_wI63PPZR", 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        p_mensaje: mensaje.value,
+        p_nombre: document.getElementById('contacto-nombre').value || null,
+        p_correo: document.getElementById('contacto-correo').value || null
+      })
+    })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (r) {
+        estado.textContent = TEXTOS[r.resultado] || TEXTOS.error;
+        if (r.resultado === 'ok') { form.reset(); cuenta.textContent = '0'; }
+      })
+      .catch(function () { estado.textContent = TEXTOS.error; })
+      .then(function () { enviar.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
