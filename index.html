@@ -113,7 +113,7 @@ dialog.contacto .cuenta { text-align: right; font-size: .85rem; color: var(--sua
 <div class="heroe">
 <div>
 <h1>Hagamos visibles los baches de Santiago</h1>
-<p class="mision">BacheSantiago reúne en un mapa los baches que reporta la comunidad. Con datos reales y ordenados, las autoridades tienen información clara para priorizar y reparar nuestras calles.</p>
+<p class="mision">BacheSantiago reúne en un mapa los baches que reporta la comunidad, con su ubicación y su nivel de peligro. Así ayudamos a que la ciudadanía conozca el estado de sus calles y ponemos a disposición información que pueda apoyar su gestión por parte de quienes corresponda.</p>
 <div class="botones">
 <a class="boton principal" href="mapa/">Ver el mapa</a>
 <a class="boton secundario" href="descargar/">Descargar la app para Android</a>
@@ -124,7 +124,7 @@ dialog.contacto .cuenta { text-align: right; font-size: .85rem; color: var(--sua
 <img src="logo.png" alt="Logo de BacheSantiago" width="112" height="112">
 <div>
 <div class="cifra" id="total">…</div>
-<div class="rotulo">baches activos en las 10 comunas del piloto</div>
+<div class="rotulo" id="rotulo-total">baches activos en las comunas del piloto</div>
 </div>
 </div>
 </div>
@@ -138,7 +138,7 @@ dialog.contacto .cuenta { text-align: right; font-size: .85rem; color: var(--sua
 <ol class="pasos">
 <li><span class="numero">1</span><h3>Reporta</h3><p>Marca el bache en el mapa e indica su tamaño y qué tan peligroso es. Si vas manejando, márcalo de un toque y complétalo después, detenido.</p></li>
 <li><span class="numero">2</span><h3>Confirma</h3><p>Otras personas confirman si sigue ahí o si ya lo repararon. Cada bache aparece una sola vez, aunque lo reporten muchos.</p></li>
-<li><span class="numero">3</span><h3>Hazlo visible</h3><p>Cada comuna tiene su Índice de Estado Vial: cuántos baches reales tiene hoy. Información clara para que se tomen decisiones.</p></li>
+<li><span class="numero">3</span><h3>Visualiza</h3><p>Cada comuna tiene su Índice de Estado Vial: cuántos baches reales tiene hoy y qué tan peligrosos son, a la vista de todos.</p></li>
 </ol>
 </div>
 </section>
@@ -228,6 +228,7 @@ dialog.contacto .cuenta { text-align: right; font-size: .85rem; color: var(--sua
         lista.appendChild(li);
       });
       total.textContent = suma.toLocaleString('es-CL');
+      document.getElementById('rotulo-total').textContent = 'baches activos en las ' + filas.length + ' comunas del piloto';
       estado.textContent = 'Actualizado al abrir esta página: ' + new Date().toLocaleString('es-CL', { dateStyle: 'long', timeStyle: 'short' });
     })
     .catch(function () {
