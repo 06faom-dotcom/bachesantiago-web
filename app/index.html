@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <title>BacheSantiago</title>
-<script>location.replace('../mapa/' + location.search + location.hash);</script>
-<meta http-equiv="refresh" content="0; url=../mapa/">
+<script>location.replace(/[?&#](code|error)=/.test(location.search + location.hash) ? '../mapa/' + location.search + location.hash : '../');</script>
+<meta http-equiv="refresh" content="0; url=../">
 </head>
-<body><p><a href="../mapa/">Ir al mapa de BacheSantiago</a></p></body>
+<body><p><a href="../">Ir a BacheSantiago</a></p></body>
 </html>
